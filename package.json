@@ -1,19 +1,20 @@
 {
   "name": "react-boilerplate",
   "version": "0.1.0",
+  "description": "boilerplate for react",
   "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.3.0",
-    "@testing-library/user-event": "^13.5.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
-  },
+  "author": "Gustavo-Blu",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "webpack",
+    "build:dev": "npm run build -- --watch --mode=development",
+    "seed": "node src/script/seed.js",
+    "start": "node src/server",
+    "start:dev": "npm run build:dev & npm run start-server",
+    "start:dev:logger": "LOGGING=true npm run start:dev",
+    "start:dev:seed": "SEED=true npm run start:dev",
+    "start-server": "JWT=shh nodemon src/server -e html,js,scss --ignore src/public --ignore src/client",
+    "not-start": "react-scripts start",
+    "not-build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -34,5 +35,37 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.8.4",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^0.27.2",
+    "bcrypt": "^5.0.1",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "history": "^5.3.0",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "pg": "^8.7.3",
+    "pg-hstore": "^2.3.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.0.2",
+    "react-router-dom": "^6.3.0",
+    "react-scripts": "5.0.1",
+    "sequelize": "^6.21.3",
+    "web-vitals": "^2.1.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.10",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/register": "^7.18.9",
+    "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
+    "nodemon": "^2.0.19",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
   }
 }
